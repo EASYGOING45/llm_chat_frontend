@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "element-ui": "^2.15.14",
+    "core-js": "^3.0.0",
     "art-template": "^4.13.2",
     "axios": "^0.21.1",
     "babel-plugin-import-bk-magic-vue": "latest",
