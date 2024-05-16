@@ -15,6 +15,18 @@ import { bus } from '@/common/bus';
 import AuthComponent from '@/components/auth';
 import '@/common/bkmagic';
 
+// 引入Element UI和样式
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
+Vue.use(ElementUI);
+
+new Vue({
+  router,
+  store,
+  render: h => h(App),
+}).$mount('#app');
+
 Vue.component('AppException', Exception);
 Vue.component('AppAuth', AuthComponent);
 
