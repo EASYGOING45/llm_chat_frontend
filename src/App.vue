@@ -85,12 +85,12 @@ export default {
       nav: {
         list: [
           {
-            name: '首页',
+            name: '模型对话',
             icon: 'icon-tree-application-shape',
             url: 'example1',
           },
           {
-            name: '登陆信息',
+            name: '知识库',
             icon: 'icon-tree-group-shape',
             url: 'example2',
           },
@@ -98,7 +98,7 @@ export default {
         id: '首页',
         toggle: false,
         submenuActive: false,
-        title: '蓝鲸应用前端开发框架',
+        title: 'AI面试助手',
       },
       admin: {
         list: [

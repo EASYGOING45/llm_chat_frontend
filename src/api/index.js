@@ -174,7 +174,7 @@ function handleReject (error, config) {
         console.error(nextError.message);
         return Promise.reject(nextError);
     }
-    messageError(error.message);
+    // messageError(error.message);
     console.error(error.message);
     return Promise.reject(error);
 }
@@ -233,7 +233,9 @@ export default http;
  * 向 http header 注入 CSRFToken，CSRFToken key 值与后端一起协商制定
  */
 export function injectCSRFTokenToHeaders () {
-    const CSRFToken = cookie.parse(document.cookie)[`${window.BKPAAS_APP_ID}_csrftoken`];
+    // const CSRFToken = cookie.parse(document.cookie)[`${window.BKPAAS_APP_ID}_csrftoken`];
+    const CSRFToken = cookie.parse(document.cookie)[`csrftoken`];
+    console.log('CSRFTOken:',CSRFToken)
     if (CSRFToken !== undefined) {
         axiosInstance.defaults.headers.common['X-CSRFToken'] = CSRFToken;
     } else {

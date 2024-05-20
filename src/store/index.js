@@ -8,6 +8,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import example from './modules/example';
+import ai from './modules/ai';
 import http from '@/api';
 // import { getCookies } from '../common/util';
 Vue.use(Vuex);
@@ -16,6 +17,7 @@ const store = new Vuex.Store({
   // 模块
   modules: {
     example,
+    ai,
   },
   // 公共 store
   state: {

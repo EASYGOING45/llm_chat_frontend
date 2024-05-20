@@ -34,7 +34,7 @@ const routes = [
         name: 'example1',
         component: Example1,
         meta: {
-          matchRoute: '首页',
+          matchRoute: '模型对话',
         },
       },
       {
@@ -42,7 +42,7 @@ const routes = [
         name: 'example2',
         component: Example2,
         meta: {
-          matchRoute: '登陆信息',
+          matchRoute: '知识库',
         },
       },
     ],

@@ -1,27 +1,31 @@
 <template>
-  <div class="example2">
-    <bk-card title="当前登陆人信息">
-      <div class="user_name">用户名： {{$store.getters.user.username}}</div>
-      <div class="avatar_url">头像： <img :src="$store.getters.user.avatar_url" alt=""></div>
-    </bk-card>
+  <div class="fast-page">
+    <iframe
+        :src="iframeSrc"
+        frameborder="0"
+        style="width: 100%; height: 100vh;"
+    ></iframe>
   </div>
 </template>
 
 <script>
 export default {
-  components: {},
+  name: 'FastPage',
   data() {
     return {
-      initDateTime: new Date(),
+      iframeSrc: 'https://cloud.fastgpt.in/'
     };
-  },
-  created() {
-  },
-  methods: {
-  },
+  }
 };
 </script>
 
 <style scoped>
-    @import './index.css';
+.fast-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
 </style>

@@ -13,10 +13,13 @@
     </el-header>
 
     <el-main>
-      <div class="chat-box">
-        <div v-for="(message, index) in messages" :key="index" :class="['message', message.role]">
+      <div class="chat-box" >
+        <div v-for="(message, index) in messages" :key="index" v-if="message.role !== 'system'" :class="['message', message.role]">
           <div class="bubble">
             <p>{{ message.content }}</p>
+          </div>
+          <div v-if="message.sentiment" class="sentiment">
+            情感分析: {{ message.sentiment }}
           </div>
         </div>
         <div v-if="loading" class="loading">
@@ -33,10 +36,12 @@
           @keyup.enter.native="sendMessage"
           rows="2">
       </el-input>
-      <el-button type="primary" @click="sendMessage">发送</el-button>
+      <el-button type="primary" @click="sendMessage_v2">发送</el-button>
     </el-footer>
   </div>
 </template>
+
+
 
 <script>
 import axios from 'axios';
@@ -51,7 +56,10 @@ export default {
         // Add more models as needed
       ],
       contextLength: 0,
-      messages: [{ role: 'system', content: 'You are a helpful assistant.' }],
+      messages: [
+          { role: 'system', content: '你是刘易行训练的AI模型，接下来请你以他的名义回答！' },
+          { role: 'assistant', content: '我是刘易行训练的计算机领域面试助手，欢迎！',sentiment:'positive' }
+      ],
       userMessage: '',
       loading: false,
     };
@@ -61,36 +69,44 @@ export default {
       console.log('Selected model:', value);
       // Fetch context length or other model-specific information if needed
     },
-    async sendMessage() {
+    async sendMessage_v2(){
       if (!this.userMessage.trim()) return;
 
       const userMessage = {
         role: 'user',
         content: this.userMessage,
       };
+      let text_params = {message:userMessage.content}
+      // 情感分析附加
+      const sentiment = await this.$store.dispatch('ai/getSentiment',text_params,{fromCache:true})
+      userMessage.sentiment = sentiment.data;
+
+      console.log('sentiment:', sentiment);
+
       this.messages.push(userMessage);
       this.userMessage = '';
       this.loading = true;
 
       try {
-        const response = await axios.post('https://api.closeai-proxy.xyz/v1/chat/completions', {
-          model: this.selectedModel,
-          messages: this.messages,
-        }, {
-          headers: {
-            'Authorization': 'Bearer sk-7t26vn8iQOlVRFVSFYtc1RFEJ2PrmiWvA4Vr0yG21IUeknbT',
-            'User-Agent': 'Apifox/1.0.0 (https://apifox.com)',
-            'Content-Type': 'application/json',
-            'Accept': '*/*',
-            'Host': 'api.closeai-proxy.xyz',
-            'Connection': 'keep-alive',
-          },
-        });
+        let params = {messages:this.messages}
+        const response = await this.$store.dispatch('ai/chatWithClose',params,{fromCache:true})
 
         const botMessage = {
           role: 'assistant',
           content: response.data.choices[0].message.content.trim(),
         };
+
+        // 情感分析附加
+        let bot_message = {message:botMessage.content};
+        console.log('bot',bot_message)
+        try{
+          let bot_sentiment = await this.$store.dispatch('ai/getSentiment',bot_message,{fromCache:true})
+          botMessage.sentiment = bot_sentiment.data;
+        }catch(error){
+          console.log('响应为空')
+          botMessage.sentiment = 'netural';
+        }
+
         this.messages.push(botMessage);
         this.contextLength = this.messages.map(m => m.content).join(' ').length;
       } catch (error) {
@@ -107,7 +123,7 @@ export default {
 .chat-container {
   display: flex;
   flex-direction: column;
-  height: 800px;
+  height: 80vh;
 }
 
 .el-header, .el-footer {
@@ -124,21 +140,22 @@ export default {
 .chat-box {
   display: flex;
   flex-direction: column;
-  height: 80vh; /* 固定高度 */
+  height: 100%; /* 固定高度 */
   overflow-y: auto;
 }
 
 .message {
   display: flex;
+  flex-direction: column; /* 使消息和情感分析垂直排列 */
   margin-bottom: 10px;
 }
 
 .message.user {
-  justify-content: flex-end;
+  align-items: flex-end; /* 用户消息右对齐 */
 }
 
 .message.assistant {
-  justify-content: flex-start;
+  align-items: flex-start; /* 助手消息左对齐 */
 }
 
 .bubble {
@@ -155,6 +172,17 @@ export default {
 .message.user .bubble {
   background-color: #409eff;
   color: white;
+}
+
+.sentiment {
+  margin-top: 5px;
+  font-size: 0.9em;
+  color: #555;
+  align-self: flex-start; /* 情感分析左对齐 */
+}
+
+.message.user .sentiment {
+  align-self: flex-end; /* 用户消息的情感分析右对齐 */
 }
 
 .context-length {
@@ -218,3 +246,5 @@ export default {
   }
 }
 </style>
+
+
