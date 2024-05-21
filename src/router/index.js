@@ -16,6 +16,10 @@ const Example1 = () => import(/* webpackChunkName: 'example1' */'@/views/example
 // import Example1 from '@/views/example1'
 const Example2 = () => import(/* webpackChunkName: 'example2' */'@/views/example2');
 // import Example2 from '@/views/example2'
+const Knowledge = () => import(/* webpackChunkName: 'example2' */'@/views/knowledge');
+// import Knowledge from '@/views/knowledge'
+const Vision = () => import(/* webpackChunkName: 'example2' */'@/views/vision');
+// import Vision from '@/views/vision'
 const NotFound = () => import(/* webpackChunkName: 'none' */'@/views/404');
 // import NotFound from '@/views/404'
 
@@ -43,6 +47,22 @@ const routes = [
         component: Example2,
         meta: {
           matchRoute: '知识库',
+        },
+      },
+      {
+        path: 'knowledge',
+        name: 'knowledge',
+        component: Knowledge,
+        meta: {
+          matchRoute: '知识库对话',
+        },
+      },
+      {
+        path: 'vision',
+        name: 'vision',
+        component: Vision,
+        meta: {
+          matchRoute: '数据可视化',
         },
       },
     ],

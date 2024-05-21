@@ -64,7 +64,18 @@ export default {
       loading: false,
     };
   },
+  created() {
+    this.init();
+  },
   methods: {
+    async init(){
+      try{
+        const res1 = await this.$store.dispatch('example/userLogin', {}, { fromCache: true });
+      }catch(err){
+        console.log(err);
+      }
+
+    },
     handleModelChange(value) {
       console.log('Selected model:', value);
       // Fetch context length or other model-specific information if needed

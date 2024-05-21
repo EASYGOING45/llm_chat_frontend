@@ -94,6 +94,16 @@ export default {
             icon: 'icon-tree-group-shape',
             url: 'example2',
           },
+          {
+            name: '知识库对话',
+            icon: 'icon-tree-group-shape',
+            url: 'knowledge',
+          },
+          {
+            name: '数据可视化',
+            icon: 'icon-tree-group-shape',
+            url: 'vision',
+          },
         ],
         id: '首页',
         toggle: false,
