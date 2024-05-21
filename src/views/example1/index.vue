@@ -97,12 +97,7 @@ export default {
         console.log('sentiment occur',err);
       }
 
-      let text_params = {message:userMessage.content}
-      // 情感分析附加
-      const sentiment = await this.$store.dispatch('ai/getSentiment',text_params,{fromCache:true})
-      userMessage.sentiment = sentiment.data;
-
-      console.log('sentiment:', sentiment);
+      console.log('In')
 
       this.messages.push(userMessage);
       this.userMessage = '';
