@@ -70,7 +70,7 @@ export default {
   methods: {
     async init(){
       try{
-        const res1 = await this.$store.dispatch('example/userLogin', {}, { fromCache: true });
+        // const res1 = await this.$store.dispatch('example/userLogin', {}, { fromCache: true });
       }catch(err){
         console.log(err);
       }
