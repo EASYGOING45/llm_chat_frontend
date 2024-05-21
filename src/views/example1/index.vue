@@ -87,6 +87,16 @@ export default {
         role: 'user',
         content: this.userMessage,
       };
+      try{
+        let text_params = {message:userMessage.content}
+        // 情感分析附加
+        const sentiment = await this.$store.dispatch('ai/getSentiment',text_params,{fromCache:true})
+        userMessage.sentiment = sentiment.data;
+      }catch(err){
+        userMessage.sentiment='positive'
+        console.log('sentiment occur',err);
+      }
+
       let text_params = {message:userMessage.content}
       // 情感分析附加
       const sentiment = await this.$store.dispatch('ai/getSentiment',text_params,{fromCache:true})
