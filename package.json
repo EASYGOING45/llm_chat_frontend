@@ -49,7 +49,7 @@
     "@blueking/eslint-config-bk": "^2.0.0"
   },
   "engines": {
-    "node": "20.10.0",
-    "npm": "10.2.3"
+    "node": ">= 14.16.1",
+    "npm": ">= 6.4.1 <7"
   }
 }
