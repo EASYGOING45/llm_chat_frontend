@@ -13,7 +13,7 @@ export default {
   name: 'FastPage',
   data() {
     return {
-      iframeSrc: 'https://share.fastgpt.in/chat/share?shareId=yk8a6wbu06j4br4x61ecpxs7' // 医疗门诊专家
+      iframeSrc: 'https://share.fastgpt.in/chat/share?shareId=hmuwwoleeii02jsdj3u4aatv' // 儿科
     };
   },
   created() {

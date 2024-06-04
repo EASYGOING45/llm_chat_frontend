@@ -1,6 +1,7 @@
 <template>
   <div class="fast-page">
     <iframe
+        ref="iframe"
         :src="iframeSrc"
         frameborder="0"
         style="width: 100%; height: 100vh;"
@@ -10,12 +11,11 @@
 
 <script>
 export default {
-  name: 'FastPage',
   data() {
     return {
-      iframeSrc: 'https://cloud.fastgpt.in/'
+      iframeSrc: 'https://share.fastgpt.in/chat/share?shareId=8fopxqqio54vnuvmw249g8t5' // 计算机专业面试助手
     };
-  }
+  },
 };
 </script>
 

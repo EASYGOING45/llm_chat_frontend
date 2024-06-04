@@ -18,6 +18,22 @@ const Example2 = () => import(/* webpackChunkName: 'example2' */'@/views/example
 // import Example2 from '@/views/example2'
 const Knowledge = () => import(/* webpackChunkName: 'example2' */'@/views/knowledge');
 // import Knowledge from '@/views/knowledge'
+const NLP = () => import(/* webpackChunkName: 'example2' */'@/views/nlp');
+// import NLP from '@/views/nlp'
+const Os = () => import(/* webpackChunkName: 'example2' */'@/views/os');
+// import Os from '@/views/os'
+const Net = () => import(/* webpackChunkName: 'example2' */'@/views/net');
+// import Net from '@/views/ney'
+const Zyk = () => import(/* webpackChunkName: 'example2' */'@/views/zyk');
+// import Zyk from '@/views/zyk'
+const Nk = () => import(/* webpackChunkName: 'example2' */'@/views/nk');
+// import Nk from '@/views/nk'
+const Wk = () => import(/* webpackChunkName: 'example2' */'@/views/wk');
+// import Wk from '@/views/wk'
+const Xlx = () => import(/* webpackChunkName: 'example2' */'@/views/xlx');
+// import Xlx from '@/views/xlx'
+const Ek = () => import(/* webpackChunkName: 'example2' */'@/views/ek');
+// import Ek from '@/views/ek'
 const Vision = () => import(/* webpackChunkName: 'example2' */'@/views/vision');
 // import Vision from '@/views/vision'
 const NotFound = () => import(/* webpackChunkName: 'none' */'@/views/404');
@@ -46,7 +62,31 @@ const routes = [
         name: 'example2',
         component: Example2,
         meta: {
-          matchRoute: '知识库',
+          matchRoute: '计算机全栈面试助手',
+        },
+      },
+      {
+        path: 'nlp',
+        name: 'nlp',
+        component: NLP,
+        meta: {
+          matchRoute: 'NLP面试专家',
+        },
+      },
+      {
+        path: 'os',
+        name: 'os',
+        component: Os,
+        meta: {
+          matchRoute: '操作系统面试专家',
+        },
+      },
+      {
+        path: 'net',
+        name: 'net',
+        component: Net,
+        meta: {
+          matchRoute: '计算机网络面试专家',
         },
       },
       {
@@ -54,7 +94,47 @@ const routes = [
         name: 'knowledge',
         component: Knowledge,
         meta: {
-          matchRoute: '知识库对话',
+          matchRoute: '医疗门诊专家',
+        },
+      },
+      {
+        path: 'wk',
+        name: 'wk',
+        component: Wk,
+        meta: {
+          matchRoute: '外科门诊专家',
+        },
+      },
+      {
+        path: 'nk',
+        name: 'nk',
+        component: Nk,
+        meta: {
+          matchRoute: '内科门诊专家',
+        },
+      },
+      {
+        path: 'xlx',
+        name: 'xlx',
+        component: Xlx,
+        meta: {
+          matchRoute: '彩虹心理咨询专家',
+        },
+      },
+      {
+        path: 'zyx',
+        name: 'zyx',
+        component: Zyk,
+        meta: {
+          matchRoute: '中医专家',
+        },
+      },
+      {
+        path: 'ek',
+        name: 'ek',
+        component: Ek,
+        meta: {
+          matchRoute: '儿科专家门诊',
         },
       },
       {

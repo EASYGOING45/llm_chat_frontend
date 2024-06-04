@@ -90,14 +90,54 @@ export default {
             url: 'example1',
           },
           {
-            name: '知识库',
+            name: '计算机全栈面试助手',
             icon: 'icon-tree-group-shape',
             url: 'example2',
           },
           {
-            name: '知识库对话',
+            name: 'NLP面试专家',
+            icon: 'icon-tree-group-shape',
+            url: 'nlp',
+          },
+          {
+            name: '操作系统面试专家',
+            icon: 'icon-tree-group-shape',
+            url: 'os',
+          },
+          {
+            name: '计算机网络面试专家',
+            icon: 'icon-tree-group-shape',
+            url: 'net',
+          },
+          {
+            name: '医疗门诊专家',
             icon: 'icon-tree-group-shape',
             url: 'knowledge',
+          },
+          {
+            name: '外科门诊专家',
+            icon: 'icon-tree-group-shape',
+            url: 'wk',
+          },
+          {
+            name: '内科门诊专家',
+            icon: 'icon-tree-group-shape',
+            url: 'nk',
+          },
+          {
+            name: '彩虹心理咨询专家',
+            icon: 'icon-tree-group-shape',
+            url: 'xlx',
+          },
+          {
+            name: '中医专家',
+            icon: 'icon-tree-group-shape',
+            url: 'zyx',
+          },
+          {
+            name: '儿科专家门诊',
+            icon: 'icon-tree-group-shape',
+            url: 'ek',
           },
           {
             name: '数据可视化',

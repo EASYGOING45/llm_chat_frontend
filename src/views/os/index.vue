@@ -13,7 +13,8 @@ export default {
   name: 'FastPage',
   data() {
     return {
-      iframeSrc: 'https://share.fastgpt.in/chat/share?shareId=yk8a6wbu06j4br4x61ecpxs7' // 医疗门诊专家
+      // https://share.fastgpt.in/chat/share?shareId=cfi76wyzdflhptfrdb45xjg1
+      iframeSrc: 'https://share.fastgpt.in/chat/share?shareId=o5ab0wn3our325t9mu3x1yp0' // OS
     };
   },
   created() {
