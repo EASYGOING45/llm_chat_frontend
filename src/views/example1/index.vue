@@ -51,7 +51,7 @@ export default {
     return {
       selectedModel: 'gpt-3.5-turbo', // 默认选择一个模型
       models: [
-        { id: 'gpt-3.5-turbo', name: '微调面试助手-ctenetliu' },
+        { id: 'gpt-3.5-turbo', name: '微调基座模型-ctenetliu' },
         { id: 'gpt-4', name: 'GPT-4' },
         // Add more models as needed
       ],
