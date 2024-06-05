@@ -52,7 +52,7 @@ export default {
       selectedModel: 'gpt-3.5-turbo', // 默认选择一个模型
       models: [
         { id: 'gpt-3.5-turbo', name: '微调基座模型-ctenetliu' },
-        { id: 'gpt-4', name: 'GPT-4' },
+        { id: 'gpt-4', name: '腾讯混元模型-微调版' },
         // Add more models as needed
       ],
       contextLength: 0,
